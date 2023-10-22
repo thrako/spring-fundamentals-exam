@@ -4,18 +4,35 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: 'TRUE'
+
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     open-in-view: 'false'
+
   mvc:
     hiddenmethod:
       filter:
         enabled: 'true'
+
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    password: ''
-    username: ''
-    url: jdbc:mysql://localhost:3306/dictionary?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+    password: ${db_password:root}
+    username: ${db_username:root}
+    name: dictionary
+    url: jdbc:mysql://localhost:3306/${spring.datasource.name}?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
+
+  thymeleaf: # Thymeleaf
+    cache: false
+    mode: HTML
+    encoding: UTF-8
+    prefix: file:src/main/resources/templates/
+
+  web:
+    resources: # Static resources
+      static-locations: file:src/main/resources/static/
+      cache:
+        period: 0
+
 logging:
   level:
     org:
@@ -25,5 +42,6 @@ logging:
         SQL: DEBUG
       nodeValue: WARN
     blog: WARN
+
 server:
   port: 8080

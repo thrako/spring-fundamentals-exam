@@ -76,3 +76,14 @@ footer {
 .badge-secondary{
     background-color: #720a75;
 }
+
+.btn-like-link {
+    background: transparent;
+    border : none;
+    cursor: pointer;
+
+}
+
+.font-inherit {
+    font: inherit;
+}
