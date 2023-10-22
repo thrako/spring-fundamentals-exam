@@ -20,7 +20,7 @@
                         <span th:text="|Example: *{word.example}|">Example: {example}</span>
                         <br>
                         <span th:text="|Added by: *{word.addedBy} on *{word.inputDate}|">Added by: {username} on {inputDate}</span>
-                        <form th:action="@{/words/{id}(id = *{word.id})}", th:method="DELETE">
+                        <form th:action="@{/words/{id}(id = *{word.id})}" th:method="DELETE">
                             <button type="submit" class="btn-like-link font-inherit ml-3 text-danger">Remove</button>
                         </form>
                     </div>
@@ -36,7 +36,7 @@
                         <span th:text="|Example: *{word.example}|">Example: {example}</span>
                         <br>
                         <span th:text="|Added by: *{word.addedBy} on *{word.inputDate}|">Added by: {username} on {inputDate}</span>
-                        <form th:action="@{/words/{id}(id = *{word.id})}", th:method="DELETE">
+                        <form th:action="@{/words/{id}(id = *{word.id})}" th:method="DELETE">
                             <button type="submit" class="btn-like-link font-inherit ml-3 text-danger">Remove</button>
                         </form>
                     </div>
@@ -47,14 +47,14 @@
             <div class="col-5 bg-dark rounded m-auto" style="height: 30vh; overflow: auto">
                 <h3 class="mySticky bg-gray text-dark rounded" th:text="|French: ${allWords.getCountsMap().get('FRENCH')}|">French: {frenchWordsCount}</h3>
                     <div class="mt-3 rounded badge-info"
-                         th:each="word : ${allWords.getWordsMap().get('FRENCH')}">>
+                         th:each="word : ${allWords.getWordsMap().get('FRENCH')}">
                         <img class="mr-2" src="/img/french.png" alt="Flag" width="20px" height="20px">
                         <span th:text="|*{word.term}: *{word.translation}|">{germanTerm}: {translation}</span>
                         <br>
                         <span th:text="|Example: *{word.example}|">Example: {example}</span>
                         <br>
                         <span th:text="|Added by: *{word.addedBy} on *{word.inputDate}|">Added by: {username} on {inputDate}</span>
-                        <form th:action="@{/words/{id}(id = *{word.id})}", th:method="DELETE">
+                        <form th:action="@{/words/{id}(id = *{word.id})}" th:method="DELETE">
                             <button type="submit" class="btn-like-link font-inherit ml-3 text-danger">Remove</button>
                         </form>
                     </div>
@@ -63,20 +63,20 @@
             <div class="col-5 bg-dark rounded m-auto" style="height: 30vh; overflow: auto">
                 <h3 class="mySticky bg-gray text-dark rounded" th:text="|Italian: ${allWords.getCountsMap().get('ITALIAN')}|">Italian: {italianWordsCount}</h3>
                     <div class="mt-3 rounded badge-success"
-                         th:each="word : ${allWords.getWordsMap().get('ITALIAN')}">>
+                         th:each="word : ${allWords.getWordsMap().get('ITALIAN')}">
                         <img class="mr-2" src="/img/italian.png" alt="Flag" width="20px" height="20px">
                         <span th:text="|*{word.term}: *{word.translation}|">{germanTerm}: {translation}</span>
                         <br>
                         <span th:text="|Example: *{word.example}|">Example: {example}</span>
                         <br>
                         <span th:text="|Added by: *{word.addedBy} on *{word.inputDate}|">Added by: {username} on {inputDate}</span>
-                        <form th:action="@{/words/{id}(id = *{word.id})}", th:method="DELETE">
+                        <form th:action="@{/words/{id}(id = *{word.id})}" th:method="DELETE">
                             <button type="submit" class="btn-like-link font-inherit ml-3 text-danger">Remove</button>
                         </form>
                     </div>
             </div>
         </div>
-        <form th:action="@{/words}", th:method="DELETE">
+        <form th:action="@{/words}" th:method="DELETE">
             <button type="submit"
                     class="btn btn-danger"
                     th:text="|Remove all ${allWords.getCountsMap().get('ALL')} words|">Remove</button>

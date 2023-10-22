@@ -69,6 +69,10 @@ public class WordController {
     @DeleteMapping("/{id}")
     public String remove(@PathVariable("id") Long wordId) {
 
+        if (!appUser.isLogged()) {
+            return "redirect:/auth/login";
+        }
+
         this.wordService.removeById(wordId);
 
         return "redirect:/home";
@@ -76,6 +80,10 @@ public class WordController {
 
     @DeleteMapping
     public String removeAll() {
+
+        if (!appUser.isLogged()) {
+            return "redirect:/auth/login";
+        }
 
         this.wordService.removeAll();
 
